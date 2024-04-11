@@ -12,7 +12,7 @@ const getPokemonsApi = async () => {
         const pokemonsList = [];
         const promises = [];
         
-        for (let i = 1; i <= 50; i++) { 
+        for (let i = 1; i <= 500; i++) { 
             promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`));
         }
         const responses = await Promise.all(promises);
