@@ -5,15 +5,22 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DEPLOY} = process.env;
 
 
-// We create the connection to the database
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/pokemon`, {
+/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/pokemon`, {
       logging: false, 
       native: false, 
    }
+);         */
+
+// We create the connection to the database
+const sequelize = new Sequelize(DB_DEPLOY, {
+   logging: false,
+   native: false,
+   }
 );
+
 
 // We read all the files in the models directory and load
 const basename = path.basename(__filename);

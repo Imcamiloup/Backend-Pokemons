@@ -14,6 +14,10 @@ server.use(cors());
 
 server.use(router);
 
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+});
+
 //here verify the server is running
 server.get('/', (req, res) => {
     res.send('API is running');
