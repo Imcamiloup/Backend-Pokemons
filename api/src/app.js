@@ -11,13 +11,11 @@ const server = express();
 server.use(morgan("dev")); //midleware get
 server.use(express.json()); //midleware post
 
-//server.use(cors());
+
+server.use(cors());
 
 server.use(router);
 
-server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-});
 
 //here verify the server is running
 server.get('/', (req, res) => {
