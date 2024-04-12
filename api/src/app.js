@@ -26,10 +26,13 @@ server.use('/api', createProxyMiddleware({
 
 server.use(router);
 
-server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+server.get("/types", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // Permitir solicitudes desde tu frontend
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  next();
+  
+  // Aquí deberías devolver los datos que correspondan a la ruta '/types'
+  // Por ejemplo:
+  res.json({ types: ["fire", "water", "grass"] });
 });
 
 //here verify the server is running
