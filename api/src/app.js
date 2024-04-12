@@ -8,9 +8,9 @@ const cors = require("cors");
 
 const server = express();
 
+
 server.use(morgan("dev")); //midleware get
 server.use(express.json()); //midleware post
-
 
 server.use(cors());
 
@@ -18,6 +18,7 @@ server.use(router);
 
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 });
 
 //here verify the server is running
