@@ -10,7 +10,7 @@ const server = express();
 
 server.use(morgan("dev")); //midleware get
 server.use(express.json()); //midleware post
-server.use(cors());
+
 
 server.use(router);
 
